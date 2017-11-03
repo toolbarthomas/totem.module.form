@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+/// Alias shorthand to return a specific form element/selector.
+///
+/// @param { String } $type
+///     The type of element we wan't to return
+///
+/// @return { Value || List }
+
+@function form-element(
+    $type: false
+)
+{
+    @if ($type != false)
+    {
+        @return map-get($form-elements, $type);
+    }
+}

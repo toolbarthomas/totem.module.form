@@ -1,0 +1,174 @@
+@mixin input-styles(
+    $category: false
+) {
+    @if ($category)
+    {
+        @if (input-style($category, 'color') != false)
+        {
+            color: input-style($category, 'color');
+        }
+
+        @if (input-style($category, 'font-family') != false)
+        {
+            font-family: input-style($category, 'font-family');
+        }
+
+        @if (input-style($category, 'font-weight') != false)
+        {
+            font-weight: input-style($category, 'font-weight');
+        }
+
+        @if (input-style($category, 'font-style') != false)
+        {
+            font-style: input-style($category, 'font-style');
+        }
+
+        @if (input-style($category, 'margin') != false)
+        {
+            margin: input-style($category, 'margin');
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        @if (input-style($category, 'height') != false)
+        {
+            height: input-style($category, 'height');
+        }
+
+        @if (input-style($category, 'padding') != false)
+        {
+            padding: input-style($category, 'padding');
+        }
+
+        @if (input-style($category, 'background') != false)
+        {
+            background: input-style($category, 'background');
+        }
+
+        @if (input-style($category, 'border') != false)
+        {
+            border: input-style($category, 'border');
+        }
+
+        @if (input-style($category, 'border-radius') != false)
+        {
+            border-radius: input-style($category, 'border-radius');
+        }
+
+        @if (input-style($category, 'box-shadow') != false)
+        {
+            box-shadow: input-style($category, 'box-shadow');
+        }
+
+        @if (input-style($category, 'opacity') != false)
+        {
+            opacity: input-style($category, 'opacity');
+        }
+
+        @if (input-style($category, 'transition') != false)
+        {
+            transition: input-style($category, 'transition');
+        }
+
+        &:hover {
+            @if (input-style($category, 'color--hover') != false)
+            {
+                color: input-style($category, 'color--hover');
+            }
+
+            @if (input-style($category, 'background--hover') != false)
+            {
+                background: input-style($category, 'background--hover');
+            }
+
+            @if (input-style($category, 'border--hover') != false)
+            {
+                border: input-style($category, 'border--hover');
+            }
+
+            @if (input-style($category, 'box-shadow--hover') != false)
+            {
+                box-shadow: input-style($category, 'box-shadow--hover');
+            }
+
+            @if (input-style($category, 'opacity--hover') != false)
+            {
+                opacity: input-style($category, 'opacity--hover');
+            }
+        }
+
+        &:focus:not([readonly]):not([disabled]) {
+            @if (input-style($category, 'color--focus') != false)
+            {
+                color: input-style($category, 'color--focus');
+            }
+
+            @if (input-style($category, 'background--focus') != false)
+            {
+                background: input-style($category, 'background--focus');
+            }
+
+            @if (input-style($category, 'border--focus') != false)
+            {
+                border: input-style($category, 'border--focus');
+            }
+
+            @if (input-style($category, 'box-shadow--focus') != false)
+            {
+                box-shadow: input-style($category, 'box-shadow--focus');
+            }
+
+            @if (input-style($category, 'opacity--focus') != false)
+            {
+                opacity: input-style($category, 'opacity--focus');
+            }
+        }
+
+        &[disabled] {
+            @if (input-style($category, 'color--disabled') != false)
+            {
+                color: input-style($category, 'color--disabled');
+            }
+
+            @if (input-style($category, 'background--disabled') != false)
+            {
+                background: input-style($category, 'background--disabled');
+            }
+
+            @if (input-style($category, 'border--disabled') != false)
+            {
+                border: input-style($category, 'border--disabled');
+            }
+
+            @if (input-style($category, 'box-shadow--disabled') != false)
+            {
+                box-shadow: input-style($category, 'box-shadow--disabled');
+            }
+
+            @if (input-style($category, 'opacity--disabled') != false)
+            {
+                opacity: input-style($category, 'opacity--disabled');
+            }
+        }
+    }
+
+    @if (input-style($category, 'color--placeholder') != false) {
+        &::-webkit-input-placeholder {
+            color: input-style($category, 'color--placeholder');
+        }
+
+        &::-moz-placeholder {
+            color: input-style($category, 'color--placeholder');
+        }
+
+        &:-ms-input-placeholder {
+            color: input-style($category, 'color--placeholder');
+        }
+    }
+}

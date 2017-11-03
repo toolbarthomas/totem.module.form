@@ -1,0 +1,28 @@
+$form-elements: (
+    'legend' : (
+        'legend',
+        '.legend'
+    ),
+    'labels' : (
+        'label',
+        '.label'
+    ),
+    'inputs' : (
+        '.input',
+        'input[type="email"]',
+        'input[type="number"]',
+        'input[type="password"]',
+        'input[type="search"]',
+        'input[type="tel"]',
+        'input[type="text"]',
+        'input[type="url"]'
+    ),
+    'form-group' : (
+        '.form-group'
+    )
+) !default;
+
+$legends: form-element('legends') !default;
+$labels: form-element('labels') !default;
+$inputs: form-element('inputs') !default;
+$form-group: form-element('form-group') !default;

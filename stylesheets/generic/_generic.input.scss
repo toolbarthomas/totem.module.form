@@ -1,0 +1,48 @@
+#{$inputs},
+textarea {
+    display: block;
+    width: 100%;
+    appearance: none;
+
+    &[disabled],
+    &[readonly] {
+        cursor: not-allowed;
+    }
+}
+
+input {
+    &,
+    &[type=email],
+    &[type=password],
+    &[type=search],
+    &[type=tel],
+    &[type=text],
+    &[type=url] {
+        &[size] {
+            width: auto;
+        }
+    }
+}
+
+textarea {
+    height: auto;
+}
+
+select {
+    font-family: sans-serif;
+}
+
+input[type="password"] {
+    font-family: sans-serif;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: inline-block;
+
+    &:focus {
+        outline: thin dotted !important;
+        outline: 4px auto -webkit-focus-ring-color !important;
+        text-decoration: underline;
+    }
+}

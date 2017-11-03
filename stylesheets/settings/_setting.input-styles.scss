@@ -1,0 +1,36 @@
+$input-styles: (
+    'default' : (
+        'color' : color('font', 'base'),
+        'color--hover' : false,
+        'color--focus' : false,
+        'color--active' : false,
+        'color--placeholder' : color('font', 'light'),
+        'font-family' : (inherit),
+        'font-weight' : 400,
+        'font-style' : normal,
+        'margin' : (0 0 15px),
+        'padding' : (12px),
+        'height' : 44px,
+        'box-shadow': 0 1px 3px rgba(black, 0.1),
+        'box-shadow--hover': false,
+        'box-shadow--focus': (
+            0 1px 3px rgba(black, 0.1),
+            inset 0 1px 3px rgba(black, 0.1)
+        ),
+        'box-shadow--disabled': none,
+        'background': color('body', 'base'),
+        'background--hover': false,
+        'background--focus': false,
+        'background--disabled': false,
+        'border': solid 1px color('border', 'base'),
+        'border-radius': 3px,
+        'border--hover': false,
+        'border--focus': solid 1px color('primary', 'base'),
+        'border--disabled': solid 1px color('border', 'base'),
+        'opacity': false,
+        'opacity--hover': false,
+        'opacity--focus': false,
+        'opacity--disabled': 0.6,
+        'transition': (all 200ms ease-in-out 0ms)
+    )
+);

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+///
+// @name: totem.module.form
+// @type: Module
+///
+
+///
+// This file is used to generate a seperate stylesheet for this module.
+//
+// The following import order is used to define were the current module is located:
+// 1. [../../../totem/./src/resources/main/stylesheets/...] Is the import location if the current module is defined outside the project (../totem_submodules/)
+// 2. [../../../main/stylesheets/...] Is the import location if the module is defined within the project (./src/resources/modules/)
+// 3. [.../**] Is the import location for all stylesheets for the current module.
+///
+
+@import "../../../totem/src/resources/main/stylesheets/shared/**";
+@import "../../../main/stylesheets/shared/**";
+@import "shared/**";
+
+@import "../../../totem/src/resources/main/stylesheets/helpers/**";
+@import "../../../main/stylesheets/helpers/**";
+@import "helpers/**";
+
+@import "../../../totem/src/resources/main/stylesheets/settings/**";
+@import "../../../main/stylesheets/settings/**";
+@import "settings/**";
+
+@import "../../../totem/src/resources/main/stylesheets/tools/**";
+@import "../../../main/stylesheets/tools/**";
+@import "tools/**";
+
+@import "generic/**";
+
+@import "base/**";
+
+@import "objects/**";
+
+@import "components/**";
+
+@import "utilities/**";

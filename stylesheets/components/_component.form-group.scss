@@ -1,0 +1,7 @@
+#{$form-group} {
+    position: relative;
+
+    + #{$form-group} {
+        margin-top: 15px;
+    }
+}

@@ -1,0 +1,27 @@
+#{$inputs},
+textarea {
+    @include input-styles('default');
+}
+
+#{$inputs} {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+textarea {
+    height: auto;
+}
+
+select {
+    @if input-style('default', 'margin') != false {
+        margin: input-style('default', 'margin');
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

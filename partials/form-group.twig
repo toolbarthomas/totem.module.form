@@ -1,0 +1,22 @@
+<div class="form-group {{ validation.class is not empty ? validation.class }}">
+    {% if horizontal_layout is not empty %}
+        <div class="row {{ horizontal_layout.row_class is not empty ? horizontal_layout.row_class }}">
+
+            {% if block('label') is defined %}
+            <div class="{{ horizontal_layout.aside_class is not empty ? horizontal_layout.aside_class : 'scol12 pcol12 tcol5 col4' }}">
+                {{ block('label' )}}
+            </div>
+            {% endif %}
+
+            <div class="{{ horizontal_layout.main_class is not empty ? horizontal_layout.main_class : 'scol12 pcol12 tcol7 col8' }}">
+                {{ block('field' )}}
+            </div>
+
+        </div>
+    {% else %}
+        {{ block('label' ) }}
+        {{ block('field' ) }}
+    {% endif %}
+
+    {{ block('description' )}}
+</div>

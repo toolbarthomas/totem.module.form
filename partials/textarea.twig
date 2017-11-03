@@ -1,0 +1,34 @@
+{% embed 'totem_submodules::totem.module.form/partials/form-group.twig' with {
+    validation: {
+        class: 'form-group--error',
+        title: 'Er is een fout opgetreden',
+        content: 'U heeft niet het correct veld gebruikt'
+    },
+    horizontal_layout: {
+        row_class: 'row--middle',
+        aside_class: true,
+        main_class: true
+    }
+} %}
+
+
+    {% block field %}
+
+        <textarea
+            {% for attribute, value in input_attributes %}
+                {% if not attribute is same as('value') %}
+
+                    {% if value is same as(true) %}
+                        {{ ' ' ~ attribute }}
+                    {% elseif value is not empty %}
+                        {{ attribute }}="{{ value }}"
+                    {% endif %}
+
+                {% endif %}
+            {% endfor %}
+        >
+            {{- input_attributes.value is not empty ? input_attributes.value -}}
+        </textarea>
+    {% endblock %}
+
+{% endembed %}
