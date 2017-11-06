@@ -1,0 +1,21 @@
+{% embed 'totem_submodules::totem.module.form/partials/form-group.twig' with {
+    horizontal_layout: null
+} %}
+
+    {% block field %}
+        <label {{ input_attributes.id is not empty ? 'for="#' ~ input_attributes.id ~ '"' }}>
+            <input type="radio"
+                {% for attribute, value in input_attributes %}
+                    {% if value is same as(true) %}
+                        {{ ' ' ~ attribute }}
+                    {% elseif value is not empty %}
+                        {{ attribute }}="{{ value }}"
+                    {% endif %}
+                {% endfor %}
+            />
+            {{ label }}
+        </label>
+
+    {% endblock %}
+
+{% endembed %}

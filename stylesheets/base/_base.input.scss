@@ -25,3 +25,23 @@ select {
         }
     }
 }
+
+input {
+    &[type="password"] {
+        font-family: sans-serif; // Reset password bullets to system's default to prevent missing glyphs.
+
+        @if input-style('default', 'font-family') != false {
+            &::-webkit-input-placeholder {
+                font-family: input-style('default', 'font-family');
+            }
+
+            &::-moz-placeholder {
+                font-family: input-style('default', 'font-family');
+            }
+
+            &:-ms-input-placeholder {
+                font-family: input-style('default', 'font-family');
+            }
+        }
+    }
+}

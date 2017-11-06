@@ -1,0 +1,44 @@
+@mixin label-styles(
+    $category: false
+) {
+    @if ($category)
+    {
+        @if (input-style($category, 'color') != false)
+        {
+            color: input-style($category, 'color');
+        }
+
+        @if (input-style($category, 'font-family') != false)
+        {
+            font-family: input-style($category, 'font-family');
+        }
+
+        @if (input-style($category, 'font-weight') != false)
+        {
+            font-weight: input-style($category, 'font-weight');
+        }
+
+        @if (input-style($category, 'font-style') != false)
+        {
+            font-style: input-style($category, 'font-style');
+        }
+
+        @if (input-style($category, 'line-height') != false)
+        {
+            line-height: input-style($category, 'line-height');
+        }
+
+        @if (input-style($category, 'margin') != false)
+        {
+            margin: input-style($category, 'margin');
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+#{$labels} {
+    display: block;
+
+    &[for] {
+        cursor: pointer;
+    }
+
+    @include label-styles('default');
+}

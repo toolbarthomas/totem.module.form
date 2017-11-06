@@ -14,17 +14,105 @@
     <h1>Form module</h1>
 
     {% include "totem_submodules::totem.module.form/partials/input.twig" with {
+        label: "Input",
         input_attributes: {
-            placeholder: "Example placeholder",
-            readonly: true
+            placeholder: "Example placeholder"
+        }
+    } %}
+
+    {% include "totem_submodules::totem.module.form/partials/input.twig" with {
+        label: "Password",
+        input_attributes: {
+            type: "password",
+            placeholder: "Example placeholder"
         }
     } %}
 
     {% include "totem_submodules::totem.module.form/partials/textarea.twig" with {
         input_attributes: {
-            placeholder: "Example placeholder"
+            placeholder: "Example placeholder",
+            rows: 12
         }
     } %}
+
+    {% include "totem_submodules::totem.module.form/partials/radio.twig" with {
+        label: "Radio",
+        input_attributes: {
+            name: "radio"
+        }
+    } %}
+
+    {% include "totem_submodules::totem.module.form/partials/radio-group.twig" with {
+        label: 'Radio group label',
+        radios: [
+            {
+                label: "Radio group 1",
+                input_attributes: {
+                    name: "radio-group"
+                }
+            },
+            {
+                label: "Radio group 2",
+                input_attributes: {
+                    name: "radio-group"
+                }
+            }
+        ]
+    } %}
+
+    {% include "totem_submodules::totem.module.form/partials/checkbox.twig" with {
+        label: "Radio",
+        input_attributes: {
+            name: "checkbox"
+        }
+    } %}
+
+    {% include "totem_submodules::totem.module.form/partials/checkbox-group.twig" with {
+        label: 'Checkbox group label',
+        checkboxes: [
+            {
+                label: "Checkbox group 1",
+                input_attributes: {
+                    name: "checkbox-group"
+                }
+            },
+            {
+                label: "Checkbox group 2",
+                input_attributes: {
+                    name: "checkbox-group"
+                }
+            }
+        ]
+    } %}
+
+    {% include "totem_submodules::totem.module.form/partials/select.twig" with {
+        label: 'Select',
+        select_attributes: {
+            name: 'select',
+            id: 'select'
+        },
+        options: [
+            {
+                title: 'Option 1',
+                option_attributes: {
+                    value: 0
+                }
+            },
+            {
+                title: 'Option 2',
+                option_attributes: {
+                    value: 1
+                }
+            },
+            {
+                title: 'Option 3',
+                option_attributes: {
+                    value: 1
+                }
+            }
+        ]
+    } %}
+
 
 {% endblock %}
 

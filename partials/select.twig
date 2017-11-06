@@ -1,0 +1,51 @@
+{% embed 'totem_submodules::totem.module.form/partials/form-group.twig' with {
+    validation: {
+        class: 'form-group--error',
+        title: 'Er is een fout opgetreden',
+        content: 'U heeft niet het correct veld gebruikt'
+    },
+    horizontal_layout: {
+        row_class: 'row--middle',
+        aside_class: true,
+        main_class: true
+    }
+} %}
+
+    {% if label is defined %}
+        {% block label %}
+            <label {{ select_attributes.id is not empty ? 'for="#' ~ select_attributes.id ~ '"' }}>{{ label }}</label>
+        {% endblock %}
+    {% endif %}
+
+    {% block field %}
+        <select
+            {% for attribute, value in select_attributes %}
+
+                {% if value is same as(true) %}
+                    {{ ' ' ~ attribute }}
+                {% elseif value is not empty %}
+                    {{ attribute }}="{{ value }}"
+                {% endif %}
+
+            {% endfor %}
+        >
+            {% for option in options %}
+                <option
+                {% for attribute, value in option.option_attributes %}
+
+                    {% if value is same as(true) %}
+                        {{ ' ' ~ attribute }}
+                    {% elseif value is not empty %}
+                        {{ attribute }}="{{ value }}"
+                    {% endif %}
+
+                {% endfor %}
+                >
+                    {{ option.title is not empty ? option.title : option.option_attributes.value }}
+                </option>
+            {% endfor %}
+
+        </select>
+    {% endblock %}
+
+{% endembed %}

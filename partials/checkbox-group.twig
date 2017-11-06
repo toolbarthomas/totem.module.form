@@ -1,0 +1,23 @@
+{% embed 'totem_submodules::totem.module.form/partials/form-group.twig' with {
+    horizontal_layout: null
+} %}
+
+    {% if label is defined %}
+        {% block label %}
+            <label {{ input_attributes.id is not empty ? 'for="#' ~ input_attributes.id ~ '"' }}>{{ label }}</label>
+        {% endblock %}
+    {% endif %}
+
+    {% if checkboxes is not empty %}
+        {% block field %}
+
+            {% for checkbox in checkboxes %}
+
+                {% include 'totem_submodules::totem.module.form/partials/checkbox.twig' with checkbox %}
+
+            {% endfor %}
+
+        {% endblock %}
+    {% endif %}
+
+{% endembed %}
