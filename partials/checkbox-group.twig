@@ -12,7 +12,7 @@
             {% for checkbox in checkboxes %}
 
                 {# Disable horizontal layout for nested checkbox #}
-                {% set checkbox = checkbox|merge({horizontal_layout : false}) %}
+                {% set checkbox = checkbox|merge({ horizontal_layout : false }) %}
 
                 {% include 'totem_submodules::totem.module.form/partials/checkbox.twig' with checkbox %}
 

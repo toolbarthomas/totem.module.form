@@ -12,7 +12,7 @@
             {% for radio in radios %}
 
                 {# Disable horizontal layout for nested radio #}
-                {% set radio = radio|merge({horizontal_layout : false }) %}
+                {% set radio = radio|merge({ horizontal_layout : false }) %}
 
                 {% include 'totem_submodules::totem.module.form/partials/radio.twig' with radio %}
 
