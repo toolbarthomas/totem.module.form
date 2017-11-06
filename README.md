@@ -1,4 +1,4 @@
-# Totem module: loadCSS
+# Totem module: Form
 Apply base styles to the default form elements:
 
 * text input (including password, number etc)
@@ -29,7 +29,6 @@ The following snippets can be used for including a form element.
     *   @param  string[]|boolean[]   $input_attributes   Outputs each item within the array as html attribute; like type, placeholder & value. Can also ouput boolean attributes when the key value has been defined as true.
     */
 
-
     {% include "totem_submodules::totem.module.form/partials/input.twig" with {
         label: "My awesome input element",
         input_attributes: {
@@ -48,7 +47,6 @@ The following snippets can be used for including a form element.
     *   @param  string   $label   Outputs a label tag above the included textarea
     *   @param  string[]|boolean[]   $input_attributes   Outputs each item within the array as html attribute. Can also ouput boolean attributes when the key value has been defined as true.
     */
-
 
     {% include "totem_submodules::totem.module.form/partials/textarea.twig" with {
         label: "My awesome textarea",
@@ -69,7 +67,6 @@ The following snippets can be used for including a form element.
     *   @param  string[]|boolean[]   $input_attributes   Outputs each item within the array as html attribute. Can also ouput boolean attributes when the key value has been defined as true.
     */
 
-
     {% include "totem_submodules::totem.module.form/partials/radio.twig" with {
         label: "Radio button",
         input_attributes: {
@@ -88,7 +85,6 @@ The following snippets can be used for including a form element.
     *   @param  string   $label   Outputs a label tag aside the included radio button
     *   @param  ArrayObject[]   $radios   Define each radio from an array, each array accepts the same parameters defined from partials/radio.twig.
     */
-
 
     {% include "totem_submodules::totem.module.form/partials/radio-group.twig" with {
         label: "Checkbox group",
@@ -150,4 +146,28 @@ The following snippets can be used for including a form element.
             }
         ]
     } %}
+```
+
+## Horizontal Layout
+You can define a horizontal layout for some partials. With this option you can place the label & field aside  each other.
+
+```twig
+
+    /**
+    *   Outputs a single input field with a horizontal layout
+    *
+    *   @param  string   $row_class   Set an additional class for the .row element.
+    *   @param  string   $label_class Adjust the column class for the label column.
+    *   @param  string   $field_class Adjust the column class for the input column.
+    */
+
+    {% include "totem_submodules::totem.module.form/partials/input.twig" with {
+        label: "My awesome input element",
+        horizontal_layout: {
+            row_class: "row--middle",
+            label_class: "scol12 pcol12 col4",
+            field_class: "scol12 pcol12 col8"
+        }
+    } %}
+
 ```
