@@ -1,6 +1,4 @@
-{% embed 'totem_submodules::totem.module.form/partials/form-group.twig' with {
-    horizontal_layout: null
-} %}
+{% embed 'totem_submodules::totem.module.form/partials/form-group.twig' %}
 
     {% if label is defined %}
         {% block label %}
@@ -12,6 +10,9 @@
         {% block field %}
 
             {% for checkbox in checkboxes %}
+
+                {# Disable horizontal layout for nested checkbox #}
+                {% set checkbox = checkbox|merge({horizontal_layout : false}) %}
 
                 {% include 'totem_submodules::totem.module.form/partials/checkbox.twig' with checkbox %}
 

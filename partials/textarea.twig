@@ -1,7 +1,12 @@
 {% embed 'totem_submodules::totem.module.form/partials/form-group.twig' %}
 
-    {% block field %}
+    {% if label is defined %}
+        {% block label %}
+            <label {{ input_attributes.id is not empty ? 'for="#' ~ input_attributes.id ~ '"' }}>{{ label }}</label>
+        {% endblock %}
+    {% endif %}
 
+    {% block field %}
         <textarea
             {% for attribute, value in input_attributes %}
                 {% if not attribute is same as('value') %}

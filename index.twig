@@ -25,14 +25,17 @@
         input_attributes: {
             type: "password",
             placeholder: "Example placeholder"
-        }
+        },
+        horizontal_layout: true
     } %}
 
     {% include "totem_submodules::totem.module.form/partials/textarea.twig" with {
+        label: "Textarea",
         input_attributes: {
             placeholder: "Example placeholder",
             rows: 12
-        }
+        },
+        horizontal_layout: true
     } %}
 
     {% include "totem_submodules::totem.module.form/partials/radio.twig" with {
@@ -44,6 +47,7 @@
 
     {% include "totem_submodules::totem.module.form/partials/radio-group.twig" with {
         label: 'Radio group label',
+        horizontal_layout: true,
         radios: [
             {
                 label: "Radio group 1",

@@ -1,5 +1,5 @@
 <div class="form-group {{ validation.class is not empty ? validation.class }}">
-    {% if horizontal_layout is not empty %}
+    {% if horizontal_layout is defined and not horizontal_layout is same as(false)  %}
         <div class="row {{ horizontal_layout.row_class is not empty ? horizontal_layout.row_class }}">
 
             {% if block('label') is defined %}
