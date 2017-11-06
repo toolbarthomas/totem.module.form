@@ -4,7 +4,7 @@
 
     {% if label is defined %}
         {% block label %}
-            <label {{ input_attributes.id is not empty ? 'for="#' ~ input_attributes.id ~ '"' }}>{{ label }}</label>
+            <label>{{ label }}</label>
         {% endblock %}
     {% endif %}
 

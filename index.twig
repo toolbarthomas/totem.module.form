@@ -14,12 +14,12 @@
     <h1>Form module</h1>
 
     {% include "totem_submodules::totem.module.form/partials/input.twig" with {
+
         label: "Input",
         input_attributes: {
             placeholder: "Example placeholder"
         }
     } %}
-
     {% include "totem_submodules::totem.module.form/partials/input.twig" with {
         label: "Password",
         input_attributes: {
@@ -29,7 +29,7 @@
     } %}
 
     {% include "totem_submodules::totem.module.form/partials/textarea.twig" with {
-        input_attributes: {
+        textarea: {
             placeholder: "Example placeholder",
             rows: 12
         }
