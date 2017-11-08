@@ -31,4 +31,10 @@
         {% endblock %}
     {% endif %}
 
+    {% if not description is empty %}
+        {% block description %}
+            {% include 'totem_submodules::totem.module.form/partials/objects/form-description.twig' with description %}
+        {% endblock %}
+    {% endif %}
+
 {% endembed %}

@@ -22,14 +22,17 @@
                     {% set radio = {} %}
                 {% endif %}
 
-                {# Disable horizontal layout for nested radio #}
+                {# Disable horizontal layout for nested checkbox #}
                 {% set radio = radio|merge({ horizontal_layout : false }) %}
+
+                {# Force class: form-group--compact #}
+                {% set radio = radio|merge({ class : 'form-group--compact' }) %}
 
                 {# Disable validation for all grouped radios layout for nested radio #}
                 {% set radio = radio|merge({ validation : false }) %}
 
-                {# Append compact class to the form group for our radio #}
-                {% set radio = radio|merge({ class : 'form-group--compact' }) %}
+                {# Disable description for all grouped radios layout for nested radio #}
+                {% set radio = radio|merge({ description : false }) %}
 
                 {% include 'totem_submodules::totem.module.form/partials/fields/radio.twig' with radio %}
             {% endfor %}
@@ -38,6 +41,12 @@
         {% if validation is iterable %}
             {% block validation %}
                 {% include 'totem_submodules::totem.module.form/partials/objects/form-message.twig' with validation %}
+            {% endblock %}
+        {% endif %}
+
+        {% if not description is empty %}
+            {% block description %}
+                {% include 'totem_submodules::totem.module.form/partials/objects/form-description.twig' with description %}
             {% endblock %}
         {% endif %}
 

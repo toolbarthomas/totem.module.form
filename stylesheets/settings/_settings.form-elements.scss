@@ -22,6 +22,9 @@ $form-elements: (
     ),
     'form-messages': (
         '.form-message'
+    ),
+    'form-descriptions': (
+        '.form-description'
     )
 ) !default;
 
@@ -30,3 +33,4 @@ $labels: form-element('labels') !default;
 $inputs: form-element('inputs') !default;
 $form-groups: form-element('form-groups') !default;
 $form-messages: form-element('form-messages') !default;
+$form-descriptions: form-element('form-descriptions') !default;

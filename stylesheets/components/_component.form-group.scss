@@ -10,19 +10,6 @@
     }
 }
 
-#{$form-groups}__main {
-    margin-top: box-model('spacing', 'small');
-    margin-bottom: box-model('spacing', 'small');
-
-    &:first-child {
-        margin-top: 0;
-    }
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
-
 @each $form-group in $form-groups {
     @each $validation-style in $validation-styles {
         #{$form-group}--#{$validation-style} {
@@ -33,7 +20,12 @@
             }
 
             #{$form-messages} {
+                display: block;
                 color: color($validation-style, 'base');
+            }
+
+            #{$form-descriptions} {
+                display: none;
             }
         }
     }

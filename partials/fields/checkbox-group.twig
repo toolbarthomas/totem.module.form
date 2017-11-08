@@ -25,12 +25,14 @@
                 {# Disable horizontal layout for nested checkbox #}
                 {% set checkbox = checkbox|merge({ horizontal_layout : false }) %}
 
+                {# Force class: form-group--compact #}
+                {% set checkbox = checkbox|merge({ class : 'form-group--compact' }) %}
+
                 {# Disable validation for all grouped radios layout for nested radio #}
                 {% set checkbox = checkbox|merge({ validation : false }) %}
 
-                {# Disable horizontal layout for nested radio #}
-                {% set checkbox = checkbox|merge({ class : 'form-group--compact' }) %}
-
+                {# Disable description for all grouped radios layout for nested radio #}
+                {% set checkbox = checkbox|merge({ description : false }) %}
 
                 {% include 'totem_submodules::totem.module.form/partials/fields/checkbox.twig' with checkbox %}
             {% endfor %}
@@ -39,6 +41,12 @@
         {% if validation is iterable %}
             {% block validation %}
                 {% include 'totem_submodules::totem.module.form/partials/objects/form-message.twig' with validation %}
+            {% endblock %}
+        {% endif %}
+
+        {% if not description is empty %}
+            {% block description %}
+                {% include 'totem_submodules::totem.module.form/partials/objects/form-description.twig' with description %}
             {% endblock %}
         {% endif %}
 

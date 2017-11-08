@@ -154,7 +154,7 @@ You can define a horizontal layout for some partials. With this option you can p
 ```twig
 
     /**
-    *   Outputs a single input field with a horizontal layout
+    *   Outputs a single input field in a horizontal layout
     *
     *   @param  string   $row_class   Set an additional class for the .row element.
     *   @param  string   $label_class Adjust the column class for the label column.
@@ -168,6 +168,46 @@ You can define a horizontal layout for some partials. With this option you can p
             label_class: "scol12 pcol12 col4",
             field_class: "scol12 pcol12 col8"
         }
+    } %}
+
+```
+
+## Validation
+With the validation parameter you can set an specific class on the .form-group element and define an aditional message for it.
+
+```twig
+
+    /**
+    *   Outputs a single input field with that with an error class & color
+    *
+    *   @param  string   $class   Define an specific class for the .form-group element; defaults to .form-group--error.
+    *   @param  string   $message   Show an custom message below the input.
+    */
+
+    {% include "totem_submodules::totem.module.form/partials/input.twig" with {
+        label: "Regular input with description",
+        validation: {
+            class: 'form-group--error',
+            message: 'Firstname is required'
+        }
+    } %}
+
+```
+
+## Adding form descriptions
+You can add an aditional description to your field by setting the parameter: **description**
+
+```twig
+
+    /**
+    *   Outputs a single input field with an description below the field
+    *
+    *   @param  string   $description   Define an aditional paragraph for the description.
+    */
+
+    {% include "totem_submodules::totem.module.form/partials/input.twig" with {
+        label: "Regular input with description",
+        description: "Field description goes here"
     } %}
 
 ```

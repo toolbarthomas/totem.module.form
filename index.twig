@@ -19,7 +19,7 @@
             placeholder: "Example placeholder"
         },
         validation: {
-            message: 'Melding is niet goed'
+            message: false
         },
         horizontal_layout: false
     } %}
@@ -114,6 +114,8 @@
 
     {% include "totem_submodules::totem.module.form/partials/fields/select.twig" with {
         label: 'Select',
+        description: 'Omschrijving',
+        horizontal_layout: true,
         select_attributes: {
             name: 'select',
             id: 'select'
@@ -137,10 +139,7 @@
                     value: 1
                 }
             }
-        ],
-        validation: {
-            message: 'Select error'
-        }
+        ]
     } %}
 
 

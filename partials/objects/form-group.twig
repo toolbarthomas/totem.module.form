@@ -6,9 +6,8 @@
 ">
     {% if horizontal_layout is defined and not horizontal_layout is same as(false)  %}
 
-        <section class="form-group__main">
+        <div>
             <div class="row {{ horizontal_layout.row_class is not empty ? horizontal_layout.row_class }}">
-
                 {% if block('label') is defined %}
                 <div class="{{ horizontal_layout.label_class is not empty ? horizontal_layout.label_class : 'scol12 pcol12 tcol5 col4' }}">
                     {{ block('label' )}}
@@ -19,23 +18,32 @@
                     {{ block('field' )}}
                 </div>
             </div>
-        </section>
+        </div>
 
         {% if block('validation') is defined %}
-            <footer class="form-group__footer">
+            <div class="form-message">
                 <div class="row">
                     <div class="{{ horizontal_layout.validation_class is not empty ? horizontal_layout.validation_class : 'scol12 pcol12 tleft5 left4 tcol7 col8' }}">
                         {{ block('validation' )}}
                     </div>
                 </div>
-            </footer>
+            </div>
+        {% endif %}
+
+        {% if block('description') is defined %}
+            <div class="form-description">
+                <div class="row">
+                    <div class="{{ horizontal_layout.description_class is not empty ? horizontal_layout.description_class : 'scol12 pcol12 tleft5 left4 tcol7 col8' }}">
+                        {{ block('description' )}}
+                    </div>
+                </div>
+            </div>
         {% endif %}
 
     {% else %}
         {{ block('label' ) }}
         {{ block('field' ) }}
         {{ block('validation' )}}
+        {{ block('description' )}}
     {% endif %}
-
-    {{ block('description' )}}
 </div>

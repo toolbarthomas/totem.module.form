@@ -1,0 +1,12 @@
+.form-description {
+    margin-top: box-model('spacing', 'small');
+    margin-bottom: box-model('spacing', 'small');
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
