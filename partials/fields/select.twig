@@ -1,4 +1,4 @@
-{% embed 'totem_submodules::totem.module.form/partials/form-group.twig' %}
+{% embed 'totem_submodules::totem.module.form/partials/objects/form-group.twig' %}
 
     {% if label is defined %}
         {% block label %}
@@ -33,8 +33,13 @@
                     {{ option.title is not empty ? option.title : option.option_attributes.value }}
                 </option>
             {% endfor %}
-
         </select>
     {% endblock %}
+
+    {% if validation is iterable %}
+        {% block validation %}
+            {% include 'totem_submodules::totem.module.form/partials/objects/form-message.twig' with validation %}
+        {% endblock %}
+    {% endif %}
 
 {% endembed %}

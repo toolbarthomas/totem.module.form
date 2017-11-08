@@ -13,39 +13,52 @@
 {% block module %}
     <h1>Form module</h1>
 
-    {% include "totem_submodules::totem.module.form/partials/input.twig" with {
+    {% include "totem_submodules::totem.module.form/partials/fields/input.twig" with {
         label: "Input",
         input_attributes: {
             placeholder: "Example placeholder"
-        }
+        },
+        validation: {
+            message: 'Melding is niet goed'
+        },
+        horizontal_layout: false
     } %}
 
-    {% include "totem_submodules::totem.module.form/partials/input.twig" with {
+    {% include "totem_submodules::totem.module.form/partials/fields/input.twig" with {
         label: "Password",
         input_attributes: {
             type: "password",
             placeholder: "Example placeholder"
         },
+        validation: {
+            message: 'jawel'
+        },
         horizontal_layout: true
     } %}
 
-    {% include "totem_submodules::totem.module.form/partials/textarea.twig" with {
+    {% include "totem_submodules::totem.module.form/partials/fields/textarea.twig" with {
         label: "Textarea",
         input_attributes: {
             placeholder: "Example placeholder",
             rows: 12
         },
+        validation: {
+            message: 'jawel'
+        },
         horizontal_layout: true
     } %}
 
-    {% include "totem_submodules::totem.module.form/partials/radio.twig" with {
+    {% include "totem_submodules::totem.module.form/partials/fields/radio.twig" with {
         label: "Radio",
         input_attributes: {
             name: "radio"
-        }
+        },
+        validation: {
+            message: 'jawel'
+        },
     } %}
 
-    {% include "totem_submodules::totem.module.form/partials/radio-group.twig" with {
+    {% include "totem_submodules::totem.module.form/partials/fields/radio-group.twig" with {
         label: 'Radio group label',
         horizontal_layout: true,
         radios: [
@@ -53,31 +66,41 @@
                 label: "Radio group 1",
                 input_attributes: {
                     name: "radio-group"
-                }
+                },
+                validation: {
+                    message: 'jawel'
+                },
             },
             {
                 label: "Radio group 2",
                 input_attributes: {
                     name: "radio-group"
-                }
+                },
+                validation: {
+                    message: 'jawel 2'
+                },
             }
         ]
     } %}
 
-    {% include "totem_submodules::totem.module.form/partials/checkbox.twig" with {
-        label: "Radio",
+    {% include "totem_submodules::totem.module.form/partials/fields/checkbox.twig" with {
+        label: "Checkbox",
         input_attributes: {
             name: "checkbox"
         }
     } %}
 
-    {% include "totem_submodules::totem.module.form/partials/checkbox-group.twig" with {
+    {% include "totem_submodules::totem.module.form/partials/fields/checkbox-group.twig" with {
         label: 'Checkbox group label',
+        horizontal_layout: true,
         checkboxes: [
             {
                 label: "Checkbox group 1",
                 input_attributes: {
                     name: "checkbox-group"
+                },
+                validation: {
+                    message: 'Checkbox group error'
                 }
             },
             {
@@ -89,7 +112,7 @@
         ]
     } %}
 
-    {% include "totem_submodules::totem.module.form/partials/select.twig" with {
+    {% include "totem_submodules::totem.module.form/partials/fields/select.twig" with {
         label: 'Select',
         select_attributes: {
             name: 'select',
@@ -114,7 +137,10 @@
                     value: 1
                 }
             }
-        ]
+        ],
+        validation: {
+            message: 'Select error'
+        }
     } %}
 
 

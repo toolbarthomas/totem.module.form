@@ -1,7 +1,40 @@
-#{$form-group} {
+#{$form-groups} {
     position: relative;
 
-    + #{$form-group} {
-        margin-top: 15px;
+    + #{$form-groups} {
+        margin-top: box-model('spacing', 'base');
+
+        &--compact {
+            margin-top: box-model('spacing', 'small');
+        }
+    }
+}
+
+#{$form-groups}__main {
+    margin-top: box-model('spacing', 'small');
+    margin-bottom: box-model('spacing', 'small');
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@each $form-group in $form-groups {
+    @each $validation-style in $validation-styles {
+        #{$form-group}--#{$validation-style} {
+
+            #{$inputs},
+            textarea {
+                border-color: color($validation-style, 'base');
+            }
+
+            #{$form-messages} {
+                color: color($validation-style, 'base');
+            }
+        }
     }
 }

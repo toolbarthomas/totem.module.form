@@ -1,12 +1,10 @@
-{% set horizontal_layout = null %}
-
-{% embed 'totem_submodules::totem.module.form/partials/form-group.twig' with {
-    horizontal_layout: false
+{% embed 'totem_submodules::totem.module.form/partials/objects/form-group.twig' with {
+    horizontal_layout: null
 } %}
 
     {% block field %}
         <label {{ input_attributes.id is not empty ? 'for="#' ~ input_attributes.id ~ '"' }}>
-            <input type="radio"
+            <input type="checkbox"
                 {% for attribute, value in input_attributes %}
                     {% if value is same as(true) %}
                         {{ ' ' ~ attribute }}
@@ -17,7 +15,12 @@
             />
             {{ label }}
         </label>
-
     {% endblock %}
+
+    {% if validation is iterable %}
+        {% block validation %}
+            {% include 'totem_submodules::totem.module.form/partials/objects/form-message.twig' with validation %}
+        {% endblock %}
+    {% endif %}
 
 {% endembed %}

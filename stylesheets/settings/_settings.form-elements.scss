@@ -1,5 +1,5 @@
 $form-elements: (
-    'legend' : (
+    'legends' : (
         'legend',
         '.legend'
     ),
@@ -17,12 +17,16 @@ $form-elements: (
         'input[type="text"]',
         'input[type="url"]'
     ),
-    'form-group' : (
+    'form-groups' : (
         '.form-group'
+    ),
+    'form-messages': (
+        '.form-message'
     )
 ) !default;
 
 $legends: form-element('legends') !default;
 $labels: form-element('labels') !default;
 $inputs: form-element('inputs') !default;
-$form-group: form-element('form-group') !default;
+$form-groups: form-element('form-groups') !default;
+$form-messages: form-element('form-messages') !default;

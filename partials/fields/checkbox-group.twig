@@ -1,0 +1,47 @@
+{# Show the global validation if the first checkbox has validation variables #}
+{% if checkboxes[0].validation is iterable %}
+    {% set validation = checkboxes[0].validation %}
+{% endif %}
+
+{% embed 'totem_submodules::totem.module.form/partials/objects/form-group.twig' %}
+
+    {% if label is defined %}
+
+        {% block label %}
+            <label>{{ label }}</label>
+        {% endblock %}
+
+    {% endif %}
+
+    {% if checkboxes is iterable %}
+        {% block field %}
+            {% for checkbox in checkboxes %}
+
+                {# Check if checkbox is iterable so we can pass it directly within the include  #}
+                {% if not checkbox is iterable %}
+                    {% set checkbox = {} %}
+                {% endif %}
+
+                {# Disable horizontal layout for nested checkbox #}
+                {% set checkbox = checkbox|merge({ horizontal_layout : false }) %}
+
+                {# Disable validation for all grouped radios layout for nested radio #}
+                {% set checkbox = checkbox|merge({ validation : false }) %}
+
+                {# Disable horizontal layout for nested radio #}
+                {% set checkbox = checkbox|merge({ class : 'form-group--compact' }) %}
+
+
+                {% include 'totem_submodules::totem.module.form/partials/fields/checkbox.twig' with checkbox %}
+            {% endfor %}
+        {% endblock %}
+
+        {% if validation is iterable %}
+            {% block validation %}
+                {% include 'totem_submodules::totem.module.form/partials/objects/form-message.twig' with validation %}
+            {% endblock %}
+        {% endif %}
+
+    {% endif %}
+
+{% endembed %}
