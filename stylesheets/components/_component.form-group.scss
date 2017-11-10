@@ -11,17 +11,17 @@
 }
 
 @each $form-group in $form-groups {
-    @each $validation-style in $validation-styles {
-        #{$form-group}--#{$validation-style} {
+    @each $validation-type in $validation-types {
+        #{$form-group}--#{$validation-type} {
 
             #{$inputs},
             textarea {
-                border-color: color($validation-style, 'base');
+                border-color: color($validation-type, 'base');
             }
 
             #{$form-messages} {
                 display: block;
-                color: color($validation-style, 'base');
+                color: color($validation-type, 'base');
             }
 
             #{$form-descriptions} {

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/// List of all validation types
+/// Will generate validation variants based on the specified types below
+
+$validation-types: (
+    'error',
+    'warning',
+    'success',
+    'notice'
+);
