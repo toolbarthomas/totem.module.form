@@ -1,13 +1,23 @@
 {
     "name": "totem.module.form",
-    "version": "0.1.0",
-    "description": "",
+    "version": "0.2.0",
+    "description": "Base form styles & snippets for Totem",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/toolbarthomas/totem.module.form.git"
     },
     "keywords": [
         "totem",
         "totem-module",
-        "totem.module.form"
-    ]
+        "form"
+    ],
+    "author": "Thomas van der Velde <contact@toolbarthomas.net>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/toolbarthomas/totem.module.form/issues"
+    },
+    "homepage": "https://github.com/toolbarthomas/totem.module.form#readme"
 }
