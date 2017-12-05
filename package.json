@@ -1,6 +1,6 @@
 {
     "name": "totem.module.form",
-    "version": "0.3.1",
+    "version": "0.4.0",
     "description": "Base form styles & snippets for Totem",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
