@@ -1,6 +1,6 @@
 {
     "name": "totem.module.form",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "description": "Base form styles & snippets for Totem",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +21,6 @@
     },
     "homepage": "https://github.com/toolbarthomas/totem.module.form#readme",
     "dependencies": {
-        "totem.template.module": "^0.1.0"
+        "totem.template.module": "^0.6.1"
     }
 }
