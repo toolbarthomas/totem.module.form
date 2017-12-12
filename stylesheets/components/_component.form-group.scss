@@ -2,10 +2,10 @@
     position: relative;
 
     + #{$form-groups} {
-        margin-top: box-model('spacing', 'base');
+        margin-top: box-model('margin', 'base');
 
         &--compact {
-            margin-top: box-model('spacing', 'small');
+            margin-top: box-model('margin', 'small');
         }
     }
 }

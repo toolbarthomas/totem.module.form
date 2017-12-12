@@ -1,6 +1,6 @@
 .form-description {
-    margin-top: box-model('spacing', 'small');
-    margin-bottom: box-model('spacing', 'small');
+    margin-top: box-model('margin', 'small');
+    margin-bottom: box-model('margin', 'small');
 
     &:first-child {
         margin-top: 0;
