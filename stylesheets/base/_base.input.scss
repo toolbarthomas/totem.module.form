@@ -45,3 +45,33 @@ input {
         }
     }
 }
+
+@if function-exists('extend-module') {
+     @if extend-module($input-styles) {
+        @each $list in extend-module($input-styles) {
+
+            $name: map-get($list, 'name');
+            $selector: map-get($list, 'selector');
+
+            #{$inputs},
+            textarea {
+                &#{$selector} {
+                    @include input-styles($name);
+                }
+            }
+
+            #{$inputs} {
+                &#{$selector} {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+            }
+
+            textarea {
+                &#{$selector} {
+                    height: auto;
+                }
+            }
+        }
+    }
+}
