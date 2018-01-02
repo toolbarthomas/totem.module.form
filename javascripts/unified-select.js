@@ -17,13 +17,26 @@
             return;
         }
 
+        $(document).on({
+            'totem.module.form.unified-select.init': function (event, unified_select) {
+                if (unified_select == null) {
+                    return;
+                }
+
+                defineObjects(unified_select);
+                defineGlyph(unified_select);
+                defineAttributes(unified_select);
+                defineSelectValue(unified_select);
+            },
+        });
+
         unified_selects.each(function() {
 
             var unified_select = $(this);
 
-            defineObjects(unified_select);
-            defineGlyph(unified_select);
-            defineAttributes(unified_select);
+            $(document).trigger('totem.module.form.unified-select.init', [unified_select]);
+
+            var unified_select__wrapper = unified_select.parent('.unified-select__wrapper');
 
             unified_select.off('focus blur keyup change').on({
                 focus: function () {
@@ -40,12 +53,12 @@
                 }
             });
 
-            unified_select.addClass('js__unified-select--ready');
+            unified_select__wrapper.addClass('js__unified-select--ready');
         });
     };
 
     // Return True || False if we have the option
-    function option(option) {
+    function getOption(option) {
         try {
             return (globals.options[option] != null);
         } catch (error) {
@@ -79,7 +92,7 @@
 
         var glyph = '<span class="unified-select__glyph"></span>';
 
-        if (option('glyph')) {
+        if (getOption('glyph')) {
             glyph = '<svg class="glyph unified-select__glyph ' + globals.options.glyph + '" role="img"><use xlink:href="#' + globals.options.glyph + '"></use></svg>';
         }
 
@@ -103,7 +116,9 @@
                 continue;
             }
 
-            unified_select.addClass('js__unified-select--' + attributes[i]);
+            var unified_select__wrapper = unified_select.parent('.unified-select__wrapper');
+
+            unified_select__wrapper.addClass('js__unified-select--' + attributes[i]);
         }
     }
 
@@ -134,11 +149,15 @@
     }
 
     function focusSelect(unified_select) {
-        unified_select.addClass('js__unified-select--focus');
+        var unified_select__wrapper = unified_select.parent('.unified-select__wrapper');
+
+        unified_select__wrapper.addClass('js__unified-select--focus');
     }
 
     function blurSelect(unified_select) {
-        unified_select.removeClass('js__unified-select--focus');
+        var unified_select__wrapper = unified_select.parent('.unified-select__wrapper');
+
+        unified_select__wrapper.removeClass('js__unified-select--focus');
     }
 
     function changeSelectedIndex(unified_select, index) {

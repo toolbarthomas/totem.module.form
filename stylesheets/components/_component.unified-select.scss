@@ -13,21 +13,20 @@
             margin-bottom: 0;
         }
     }
-
-    .js__select--ready & {
-        cursor: pointer;
-    }
-
-    .js__select--disabled & {
-        cursor: not-allowed;
-    }
 }
 
 .unified-select__field-wrapper {
     position: relative;
     overflow: hidden;
 
-    @include input-styles('default');
+    @include input-styles(
+        $category: 'default',
+        $selectors: (
+            'hover': '.js__unified-select--hover &',
+            'focus': '.js__unified-select--focus &',
+            'disabled': '.js__unified-select--disabled &'
+        )
+    );
 
     padding-top: 0;
     padding-bottom: 0;
@@ -37,6 +36,14 @@
     }
 
     user-select: none;
+
+    .js__unified-select--ready & {
+        cursor: pointer;
+    }
+
+    .js__unified-select--disabled & {
+        cursor: not-allowed;
+    }
 }
 
 
@@ -52,8 +59,8 @@
 }
 
 .unified-select {
-    &.js__unified-select--ready {
-        cursor: pointer;
+    .js__unified-select--ready & {
+        cursor: default;
         display: block;
         position: absolute;
         top: 50%;
@@ -73,6 +80,14 @@
             opacity: 1;
         }
     }
+
+    .js__unified-select--ready & {
+        cursor: pointer;
+    }
+
+    .js__unified-select--disabled & {
+        cursor: not-allowed;
+    }
 }
 
 .unified-select__glyph-wrapper {
@@ -89,12 +104,18 @@
     }
 }
 
-svg.unified-select__glyph {
+.unified-select__glyph {
     display: inline-block;
     vertical-align: middle;
 
-    @if input-style('default', 'height') != false {
-        max-width: input-style('default', 'height');
-        max-height: input-style('default', 'height');
+    $this: &;
+
+    @at-root svg#{$this} {
+
+        @if input-style('default', 'height') != false {
+            max-width: input-style('default', 'height');
+            max-height: input-style('default', 'height');
+        }
+
     }
 }

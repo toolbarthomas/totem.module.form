@@ -119,7 +119,8 @@
         select_attributes: {
             name: 'select',
             id: 'select',
-            class: 'unified-select'
+            class: 'unified-select',
+            disabled: true
         },
         options: [
             {
@@ -131,7 +132,8 @@
             {
                 title: 'Option 2',
                 option_attributes: {
-                    value: 1
+                    value: 1,
+                    selected: true
                 }
             },
             {
@@ -161,8 +163,6 @@
     <script>{% include "totem_submodules::totem.module.top-bar/node_modules/jquery/dist/jquery.min.js" ignore missing %}</script>
     <script src="javascripts/unified-select.js"></script>
     <script>
-        setUnifiedSelect({
-            glyph: 'foo'
-        });
+        setUnifiedSelect();
     </script>
 {% endblock %}

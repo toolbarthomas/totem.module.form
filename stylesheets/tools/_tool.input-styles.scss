@@ -1,5 +1,10 @@
 @mixin input-styles(
-    $category: false
+    $category: false,
+    $selectors: (
+        'hover': null,
+        'focus': null,
+        'disabled': null
+    )
 ) {
     @if ($category)
     {
@@ -76,7 +81,8 @@
             transition: input-style($category, 'transition');
         }
 
-        &:hover {
+        &:hover,
+        #{map-get($selectors, 'hover')} {
             @if (input-style($category, 'color--hover') != false)
             {
                 color: input-style($category, 'color--hover');
@@ -103,7 +109,8 @@
             }
         }
 
-        &:focus:not([readonly]):not([disabled]) {
+        &:focus:not([readonly]):not([disabled]),
+        #{map-get($selectors, 'focus')} {
             @if (input-style($category, 'color--focus') != false)
             {
                 color: input-style($category, 'color--focus');
@@ -130,7 +137,8 @@
             }
         }
 
-        &[disabled] {
+        &[disabled],
+        #{map-get($selectors, 'disabled')} {
             @if (input-style($category, 'color--disabled') != false)
             {
                 color: input-style($category, 'color--disabled');
