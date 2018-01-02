@@ -118,7 +118,8 @@
         horizontal_layout: true,
         select_attributes: {
             name: 'select',
-            id: 'select'
+            id: 'select',
+            class: 'unified-select'
         },
         options: [
             {
@@ -157,5 +158,11 @@
 {% endblock %}
 
 {% block foot %}
-    <script src="javascripts/totem.module.form.js"></script>
+    <script>{% include "totem_submodules::totem.module.top-bar/node_modules/jquery/dist/jquery.min.js" ignore missing %}</script>
+    <script src="javascripts/unified-select.js"></script>
+    <script>
+        setUnifiedSelect({
+            glyph: 'foo'
+        });
+    </script>
 {% endblock %}

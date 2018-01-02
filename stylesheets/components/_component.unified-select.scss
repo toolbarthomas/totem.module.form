@@ -1,0 +1,100 @@
+.unified-select__wrapper {
+    display: block;
+    position: relative;
+
+    @if input-style('default', 'margin') != false {
+        margin: input-style('default', 'margin');
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .js__select--ready & {
+        cursor: pointer;
+    }
+
+    .js__select--disabled & {
+        cursor: not-allowed;
+    }
+}
+
+.unified-select__field-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    @include input-styles('default');
+
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @if input-style('default', 'height') != false {
+        padding-right: input-style('default', 'height');
+    }
+
+    user-select: none;
+}
+
+
+.unified-select__field {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.unified-select__field-value {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.unified-select {
+    &.js__unified-select--ready {
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        appearance: none;
+        border: 0;
+        outline: 0;
+        opacity: 0;
+        margin: 0;
+        transform: (
+            translateY(-50%)
+        );
+
+        option {
+            opacity: 1;
+        }
+    }
+}
+
+.unified-select__glyph-wrapper {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    text-align: center;
+    transform: (
+        translateY(-50%)
+    );
+
+    @if input-style('default', 'height') != false {
+        width: input-style('default', 'height');
+    }
+}
+
+svg.unified-select__glyph {
+    display: inline-block;
+    vertical-align: middle;
+
+    @if input-style('default', 'height') != false {
+        max-width: input-style('default', 'height');
+        max-height: input-style('default', 'height');
+    }
+}
