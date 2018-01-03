@@ -12,7 +12,7 @@
 
 {% block module %}
     <h1>Form module</h1>
-
+{#
     {% include "totem_submodules::totem.module.form/partials/fields/input.twig" with {
         label: "Input",
         input_attributes: {
@@ -110,7 +110,7 @@
                 }
             }
         ]
-    } %}
+    } %} #}
 
     {% include "totem_submodules::totem.module.form/partials/fields/select.twig" with {
         label: 'Select',
@@ -119,14 +119,14 @@
         select_attributes: {
             name: 'select',
             id: 'select',
-            class: 'unified-select',
-            disabled: true
+            class: 'unified-select'
         },
         options: [
             {
                 title: 'Option 1',
                 option_attributes: {
-                    value: 0
+                    value: 0,
+                    disabled: true
                 }
             },
             {
@@ -163,6 +163,8 @@
     <script>{% include "totem_submodules::totem.module.top-bar/node_modules/jquery/dist/jquery.min.js" ignore missing %}</script>
     <script src="javascripts/unified-select.js"></script>
     <script>
-        setUnifiedSelect();
+        setUnifiedSelect({
+            dropdown: false
+        });
     </script>
 {% endblock %}

@@ -88,7 +88,7 @@
                 color: input-style($category, 'color--hover');
             }
 
-            @if (input-style($category, 'background--hover') != false)
+        @if (input-style($category, 'background--hover') != false)
             {
                 background: input-style($category, 'background--hover');
             }
